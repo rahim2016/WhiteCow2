@@ -1,0 +1,283 @@
+{% extends 'deal/sharefiles/base.html' %} {% block content %}
+
+<!-- End Navigation Bar-->
+<div class="container">
+
+
+    <div class="headerNavContainer">
+        <!-- Navigation Bar-->
+        <div class="col-lg-12 headerNav shadow">
+
+
+
+
+            <div id="navigation">
+                <!-- Navigation Menu-->
+                <ul class="navigation-menu">
+
+                    <li class="has-submenu">
+                        <a href="{% url 'index' %}"><i class="mdi mdi-view-dashboard"></i>Go Home</a>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="#"> <i class="mdi mdi-chart-donut-variant"></i>Deals
+                            <div class="arrow-down"></div>
+                        </a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="{% url 'address_assets' %}">Create Deals</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'view' %}">View Deals</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="has-submenu">
+                        <a href="{% url 'subscriptions' %}"> <i class="mdi mdi-bell-ring"></i>Subscriptions
+                        </a>
+                    </li>
+
+
+
+                </ul>
+                <!-- End navigation menu -->
+
+                <div class="clearfix"></div>
+            </div>
+            <!-- end #navigation -->
+
+            <!-- end container -->
+            <!-- end navbar-custom -->
+
+        </div>
+
+    </div>
+    <!-- End Navigation Bar-->
+
+    <div class="col-12">
+
+        <div class="content">
+
+            <!-- Start Content-->
+            <div class="main-content">
+
+                <div class="container-fluid">
+
+
+                    <!-- start page title -->
+                    <div class="row justify-content-center content-header shadow">
+                        <div class="col-12 ml-2">
+                            <div class="page-title-box align-items-center">
+                                <h4 class="page-title m-2">Dashboard</h4>
+
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">WhiteCow</a></li>
+                                        <li class="breadcrumb-item">Dashboard</li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12 col-md-6 col-xl-4 ">
+                            <div class="card-box shadow">
+                                <div class="dropdown float-right">
+                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                    </div>
+                                </div>
+
+                                <h4 class="header-title mt-0 mb-4">Daily Deal</h4>
+
+                                <div class="widget-chart-1">
+                                    <div class="widget-chart-box-1 float-left" dir="ltr">
+                                        <input id="daily_deal_chart" data-plugin="knob" data-width="80" data-height="80" data-fgColor="#f05050 " data-bgColor="#F9B9B9" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
+                                    </div>
+
+                                    <div class="widget-detail-1 text-right">
+                                        <h2 id="daily_number" class="font-weight-normal pt-2 mb-1"> </h2>
+                                        <p class="text-muted mb-1">Daily Deal</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class=" col-sm-12 col-md-6 col-xl-4">
+                            <div class="card-box shadow">
+                                <div class="dropdown float-right">
+                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                    </div>
+                                </div>
+
+                                <h4 class="header-title mt-0 mb-4">Monthly Deals</h4>
+
+                                <div class="widget-chart-1">
+                                    <div class="widget-chart-box-1 float-left" dir="ltr">
+                                        <input id="monthly_deal_chart" data-plugin="knob" data-width="80" data-height="80" data-fgColor="#ffbd4a" data-bgColor="#FFE6BA" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
+                                    </div>
+                                    <div class="widget-detail-1 text-right">
+                                        <h2 id="monthy_number" class="font-weight-normal pt-2 mb-1"> </h2>
+                                        <p class="text-muted mb-1">Monthly Deals</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class=" col-sm-12 col-md-12 col-xl-4">
+                            <div class="card-box shadow">
+                                <div class="dropdown float-right">
+                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                    </div>
+                                </div>
+
+                                <h4 class="header-title mt-0 mb-4">Annal Deals</h4>
+
+                                <div class="widget-chart-1">
+                                    <div class="widget-chart-box-1 float-left" dir="ltr">
+                                        <input id="annual_deal_chart" data-plugin="knob" data-width="80" data-height="80" data-fgColor="#FF8ACC" data-bgColor="#FEE7F4" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
+                                    </div>
+                                    <div class="widget-detail-1 text-right">
+                                        <h2 id="annual_number" class="font-weight-normal pt-2 mb-1"> </h2>
+                                        <p class="text-muted mb-1">Annal Deals</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center">
+                        <div class="ccol-sm-12 col-md-12 col-xl-4">
+                            <div class="card-box shadow">
+                                <div class="dropdown float-right">
+                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                    </div>
+                                </div>
+
+                                <h4 class="header-title mt-0">Property Types</h4>
+
+                                <div class="widget-chart text-center ">
+                                    <div id="morris-donut-example" dir="ltr" style="height: 245px;" class="morris-chart"></div>
+                                    <ul class="list-inline chart-detail-list mb-0">
+                                        <li class="list-inline-item">
+                                            <h5 style="color: #ff8acc;"><i class="fa fa-circle mr-1"></i>Land</h5>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <h5 style="color: #5b69bc;"><i class="fa fa-circle mr-1"></i>Single Family</h5>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <h5 style="color: #b5bc5b;"><i class="fa fa-circle mr-1"></i>Multi Family</h5>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <h5 style="color: #060627;"><i class="fa fa-circle mr-1"></i>Mobile</h5>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <h5 style="color: #dda53c;"><i class="fa fa-circle mr-1"></i>Farm</h5>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+
+                        <div class="ccol-sm-12 col-md-12 col-xl-8">
+                            <div class="card-box shadow">
+                                <div class="dropdown float-right">
+                                    <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                                        <i class="mdi mdi-dots-vertical"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                        <!-- item-->
+                                        <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                                    </div>
+                                </div>
+                                <h4 class="header-title mt-0">Deals Annual Statistics</h4>
+                                <div id="morris-bar-example" dir="ltr" style="height: 280px;" class="morris-chart"></div>
+                            </div>
+                        </div>
+                        <!-- end col -->
+
+
+                        <!-- end col -->
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+            <!-- container-fluid -->
+
+        </div>
+        <!-- content -->
+    </div>
+
+
+</div>
+
+
+<!-- end Footer -->
+
+</div>
+
+</div>
+
+
+
+{% endblock %}

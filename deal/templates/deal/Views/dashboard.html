@@ -1,0 +1,142 @@
+{% extends 'deal/sharefiles/base.html' %} 
+{% load static %}
+
+{% block content %}
+
+
+<div class="container mt-4 mb-5">
+  <div class="row">
+    <div class="col-md-10">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="">Deals</a>
+          </li>
+          <li class="breadcrumb-item " aria-current="page">
+            My Deals
+          </li>
+        </ol>
+      </nav>
+    </div>
+
+    <div class="col-md-2">
+      <a href="{% url 'add-deal'%}" class="btn btn-primary">Create Deals</a>
+    </div>
+
+    
+  </div>
+
+
+      <div class="col-md-8"></div>
+      <div class="float-right col-md-4 mt-4 ml-4">
+
+        <div class="form-group ">
+          <input type="text" class="form-control" id="searchField" placeholder="Search">
+        </div>
+      </div>
+    
+<div class = "container">
+<div class='table-area table-responsive col-md-10'>
+  <table class="table table-hover table-striped table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Date Created</th>
+        
+          <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody >
+  {% for deal in page_obj %}
+  
+       <tr >
+        <td >{{deal.name}}'s deal</td>
+        <td>{{deal.date}}</td>
+          
+  <td>
+   <a type="button" class="btn btn-outline-success btn-md"  href="{% url 'deal-detail' deal.pk %}" >View Deal</a>
+   <button type="button" class="btn btn-outline-danger btn-md" data-toggle="modal" data-target="#exampleModal">X</button>
+  
+   <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirm Action!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete this Deal?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">CLOSE</button>
+          <a type="button" class="btn btn-primary"  href="{%  url 'deal_delete' deal.pk %}">YES</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </td>
+  
+  
+  
+      </tr>
+  
+  
+  {% endfor %}
+  
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<p class="no-results" style="display: none;">No results </p>
+
+  <div class="table-output">
+
+
+    <table class="table table-stripped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Date Created</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+
+      <tbody  class="table-body">
+
+
+      </tbody>
+    </table>
+  </div>
+
+  
+  
+
+<div class="pagination-container float-right mr-5">
+  <div class="">
+    Showing page {{page_obj.number}} of {{ page_obj.paginator.num_pages }}
+  </div>
+  <ul class="pagination align-right float-right mr-auto">
+    {% if page_obj.has_previous %}
+    <li {% if page_obj.number == 1 %} class="page-item active" {% endif %}><a class="page-link" href="?page=1">&laquo; 1</a></li>
+    <li class="page-item"> <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+    {% endif %}
+
+    {% if page_obj.has_next %}
+    <li class="page-item"> <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+    <li class="page-item"> <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages}} &raquo;</a></li>
+    {% endif %}
+
+
+    </ul>
+  
+</div>
+</div>
+
+<script src="{% static 'js/searchDeals.js'%}">
+
+</script>
+
+{% endblock content %}

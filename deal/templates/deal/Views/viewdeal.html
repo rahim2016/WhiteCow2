@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+{% if property_status == 'For Sale'%}
+      {% for b in data.itertuples %}
+      <li><a href="{% url 'detail_view_deal' b.Index %}">Address: {{ b.address.city }}, {{b.address.state_code}}{{b.address.postal_code}}
+        Price: ${{b.price}}
+        beds:{{b.beds}}
+        bath:{{b.baths}}
+        {%endfor%}
+
+      {% else %}
+       {% for b in data.itertuples %}
+        <li><a href="{% url 'detail_view_deal' b.Index %}">Address: {{ b.address.city }}, {{b.address.state_code}}{{b.address.postal_code}}
+        Price Range: {{b.community.price_min}}-{{b.community.price_max}}
+        beds:{{b.community.beds_min}} - {{b.community.beds_max}}
+        bath:{{b.community.baths_min}} - {{b.community.baths_max}}
+      </a>
+      {%endfor%}
+
+      {% endif %}
+    </div>
+    
+</body>
+</html>

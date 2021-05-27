@@ -1,0 +1,43 @@
+{% load static %}
+<footer id="footer">
+  <div class="footerIcon">
+    <a href="Https://www.facebook.com">
+      <img
+        class="icon"
+        src="{% static 'file/images/facebook1.png' %}"
+        alt="facebook"
+    /></a>
+    <a href="#">
+      <img
+        class="icon"
+        src="{% static 'file/images/youtube.png' %}"
+        alt="youtube"
+    /></a>
+    <a href="#">
+      <img
+        class="icon"
+        src="{% static 'file/images/twitter.png' %}"
+        alt="twitter"
+    /></a>
+    <a href="#">
+      <img
+        class="icon"
+        src="{% static 'file/images/linkedin.png' %}"
+        alt="linked in"
+    /></a>
+    <a href="#">
+      <img
+        class="icon"
+        src="{% static 'file/images/instagram.png' %}"
+        alt="instagramabout us"
+    /></a>
+  </div>
+  <div class="footerNav">
+    <a class="footer-link" href="{% url 'index' %}">HOME</a>
+    <a class="footer-link" href="#about">ABOUT US</a>
+    <a class="footer-link" href="#contact">CONTACT US</a>
+  </div>
+  <div class="footerCopy">
+    <p>&copy; 2021 White Cow. All Rights Reserved | Terms and Conditions</p>
+  </div>
+</footer>

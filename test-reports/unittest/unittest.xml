@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+	<testsuite name="deal.tests.test_views.TestViews-20210430130249" tests="7" file="deal/tests/test_views.py" time="76.380" timestamp="2021-04-30T13:04:06" failures="0" errors="1" skipped="0">
+		<testcase classname="deal.tests.test_views.TestViews" name="test_add_deal_GET" time="4.651" timestamp="2021-04-30T13:02:54" file="deal/tests/test_views.py" line="38"/>
+		<testcase classname="deal.tests.test_views.TestViews" name="test_add_deal_POST" time="1.675" timestamp="2021-04-30T13:02:55" file="deal/tests/test_views.py" line="48">
+			<system-out><![CDATA[######## Deal's name is  deal
+]]></system-out>
+		</testcase>
+		<testcase classname="deal.tests.test_views.TestViews" name="test_address_assets_GET" time="2.302" timestamp="2021-04-30T13:02:58" file="deal/tests/test_views.py" line="65">
+			<system-out><![CDATA[########## property status is  Sale
+]]></system-out>
+		</testcase>
+		<testcase classname="deal.tests.test_views.TestViews" name="test_deal_detail_GET" time="3.320" timestamp="2021-04-30T13:04:03" file="deal/tests/test_views.py" line="101"/>
+		<testcase classname="deal.tests.test_views.TestViews" name="test_index_GET" time="1.189" timestamp="2021-04-30T13:04:04" file="deal/tests/test_views.py" line="30"/>
+		<testcase classname="deal.tests.test_views.TestViews" name="test_save_deal_GET" time="1.117" timestamp="2021-04-30T13:04:06" file="deal/tests/test_views.py" line="91"/>
+		<testcase classname="deal.tests.test_views.TestViews" name="test_address_assets_POST" time="62.126" timestamp="2021-04-30T13:04:00" file="deal/tests/test_views.py" line="74">
+			<error type="ConnectionError" message="HTTPSConnectionPool(host='realtor-com-real-estate.p.rapidapi.com', port=443): Max retries exceeded with url: /for-sale?city=New+York+City&amp;state_code=NY&amp;location=&amp;property_status=Sale&amp;property_type=land (Caused by NewConnectionError('&lt;urllib3.connection.HTTPSConnection object at 0x1127f9c70&gt;: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))"><![CDATA[Traceback (most recent call last):
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/urllib3/connection.py", line 169, in _new_conn
+    conn = connection.create_connection(
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/urllib3/util/connection.py", line 73, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/Library/Frameworks/Python.framework/Versions/3.9/lib/python3.9/socket.py", line 953, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/urllib3/connectionpool.py", line 699, in urlopen
+    httplib_response = self._make_request(
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/urllib3/connectionpool.py", line 382, in _make_request
+    self._validate_conn(conn)
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/urllib3/connectionpool.py", line 1010, in _validate_conn
+    conn.connect()
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/urllib3/connection.py", line 353, in connect
+    conn = self._new_conn()
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/urllib3/connection.py", line 181, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x1127f9c70>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/urllib3/connectionpool.py", line 755, in urlopen
+    retries = retries.increment(
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/urllib3/util/retry.py", line 574, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='realtor-com-real-estate.p.rapidapi.com', port=443): Max retries exceeded with url: /for-sale?city=New+York+City&state_code=NY&location=&property_status=Sale&property_type=land (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1127f9c70>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/home/Documents/GitHub/WhiteCow2/deal/tests/test_views.py", line 87, in test_address_assets_POST
+    response = self.client.post(self.address_assets_url, context)
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/django/test/client.py", line 751, in post
+    response = super().post(path, data=data, content_type=content_type, secure=secure, **extra)
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/django/test/client.py", line 407, in post
+    return self.generic('POST', path, post_data, content_type,
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/django/test/client.py", line 473, in generic
+    return self.request(**r)
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/django/test/client.py", line 719, in request
+    self.check_exception(response)
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/django/test/client.py", line 580, in check_exception
+    raise exc_value
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/django/core/handlers/exception.py", line 47, in inner
+    response = get_response(request)
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/django/core/handlers/base.py", line 181, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/home/Documents/GitHub/WhiteCow2/deal/views.py", line 189, in address_asset
+    response = property_search_query(url = url_for_sale, query_params=d)
+  File "/Users/home/Documents/GitHub/WhiteCow2/deal/view_method.py", line 21, in property_search_query
+    response = requests.request("GET", url, headers=headers, params=query_params)
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/requests/sessions.py", line 542, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/requests/sessions.py", line 655, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/home/.local/share/virtualenvs/WhiteCow2-UdVHqJzA/lib/python3.9/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='realtor-com-real-estate.p.rapidapi.com', port=443): Max retries exceeded with url: /for-sale?city=New+York+City&state_code=NY&location=&property_status=Sale&property_type=land (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1127f9c70>: Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known'))
+]]></error>
+			<system-out><![CDATA[########## property status is  Sale
+Data to make API call is :  {'city': 'New York City', 'state_code': 'NY', 'location': '', 'property_status': 'Sale', 'property_type': 'land'}
+computing Deal......
+
+]]></system-out>
+		</testcase>
+	</testsuite>
+	<testsuite name="deal.tests.test_urls.TestUrls-20210430130249" tests="6" file="deal/tests/test_urls.py" time="0.044" timestamp="2021-04-30T13:04:06" failures="0" errors="0" skipped="0">
+		<testcase classname="deal.tests.test_urls.TestUrls" name="test_add_deal" time="0.003" timestamp="2021-04-30T13:04:06" file="deal/tests/test_urls.py" line="13"/>
+		<testcase classname="deal.tests.test_urls.TestUrls" name="test_address_assets" time="0.004" timestamp="2021-04-30T13:04:06" file="deal/tests/test_urls.py" line="17"/>
+		<testcase classname="deal.tests.test_urls.TestUrls" name="test_delete_deal_is_resolved" time="0.008" timestamp="2021-04-30T13:04:06" file="deal/tests/test_urls.py" line="29"/>
+		<testcase classname="deal.tests.test_urls.TestUrls" name="test_index_is_resolved" time="0.002" timestamp="2021-04-30T13:04:06" file="deal/tests/test_urls.py" line="9"/>
+		<testcase classname="deal.tests.test_urls.TestUrls" name="test_save_deal" time="0.024" timestamp="2021-04-30T13:04:06" file="deal/tests/test_urls.py" line="21"/>
+		<testcase classname="deal.tests.test_urls.TestUrls" name="test_view_deal_detail_is_resolved" time="0.003" timestamp="2021-04-30T13:04:06" file="deal/tests/test_urls.py" line="25"/>
+	</testsuite>
+</testsuites>

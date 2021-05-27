@@ -1,0 +1,34 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+django-allauth = "==0.43.0"
+ipykernel = "*"
+psycopg2 = "*"
+django-heroku = "*"
+gunicorn = "*"
+coverage = "*"
+django-crispy-forms = "*"
+pillow = "*"
+django-nose = "*"
+django-embed-video = "*"
+pandas = "*"
+numpy = "*"
+django-pandas = "*"
+six = "*"
+celery = "*"
+xmlrunner = "*"
+unittest-xml-reporting = "*"
+dj-database-url = "*"
+whitenoise = "*"
+django-celery-beat = "*"
+django-enum-choices = "*"
+django-bootstrap-modal-forms = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"

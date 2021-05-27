@@ -1,0 +1,181 @@
+{% extends 'deal/sharefiles/base.html' %} {% block content %}
+
+<div class="container">
+    <div class="col-12">
+
+        <div class="card mt-4 ml-4 mr-4">
+
+            <form action="{% url 'address_assets' %}" method="post">
+
+
+                <div class="card-body">
+                    <p class="h6">Address:</p>
+                    {% include 'partials/_messages.html'%} {% csrf_token %}
+
+                    <div class="form-row">
+                        <div class="col col-md-6">
+                            <input type="text" class="form-control" placeholder="City" name="city">
+                        </div>
+                        <div class="col col-md-2">
+                            <input type="text" class="form-control" placeholder="State code" name="state_code">
+                        </div>
+                        <div class="col col-md-4">
+                            <input type="text" class="form-control" placeholder="Postal code" name="location">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Show more options
+                            </a>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <p class="h6">Assets:</p>
+                            {% include 'deal/forms/sale-form.html' %}
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="submitButton">
+                    <button id="btnsub" type="submit" class="btn btn-primary btn-primary-sm">Search Deals</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div id="dipblayDealBlock" style="visibility:visible" class="app-table">
+            <table id="dealsResult" class="table table-stripped table-hover">
+                <thead id="head">
+                    <tr>
+                        <th>Price (USD)</th>
+                        <th>Description</th>
+                        <th>Location</th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    {% for deal in deals.itertuples%}
+                    <tr>
+                        <td>{{deal.list_price}}</td>
+                        <td>{{deal.description.type}}, lot:{{deal.description.lot_sqft}} sqft beds:{{deal.description.beds}} Garage:{{deal.description.garage}}, {{deal.description.sqft}} sqft</td>
+                        <td>{{deal.location.address.postal_code}}, {{deal.location.address.state}} {{deal.location.address.state_code}}</td>
+
+
+                        <td>
+                            <a href="https://www.realtor.com/realestateandhomes-detail/{{deal.permalink}}" class="btn btn-secondary btn-sm">View Details</a
+                  >
+                </td>
+              </tr>
+        
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+
+         
+          <div class="submitButton">
+                    <button
+                          id = "save"
+                          type="submit"
+                          data-toggle="modal"
+                           data-target="#exampleModal"
+                          class="btn btn-success">Save</button>
+                  </div>
+        
+
+
+
+        
+  
+   <div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Confirm Action!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form action="{% url 'save_deal' %}" method="post">
+        {% csrf_token %}
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label for="">Enter Deal's Name:</label>
+            <input type="text" class="form-control form-control-sm" name="name" required/>
+        </div>
+
+
+        <div class="form-group ">
+          <label for="">Set When to receive Deals via emails:</label>
+          <div class="maindropSelect">
+
+            <div class="dropselect1">
+                <select class="form-control" id="exampleFormControlSelect1" name="time">
+                    <option name ="time" value = "">Select period.. </option>
+                    
+                    <option name ="time" value ="1 min" >One Minute</option>
+                    <option name ="time" value ="7 days" >Daily</option>
+                    <option name ="time" value ="2 days" >Weekends</option>
+                </select>
+            </div>
+        </div>
+        </div>
+
+        </div>
+      
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <input type="submit" class="btn btn-primary btn-primary" value="Save">
+        </div>
+
+      </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    </div>
+  </div>
+
+<script >
+
+const tableHead = document.querySelector('#head');
+const save = document.querySelector('#save');
+const tableBody = document.querySelector('#tableBody');
+tableHead.style.display = "none";
+save.style.display = "none";
+
+
+
+
+const showData = (e)=>{
+   
+    if(tableBody.innerHTML.trim() === ""){
+      console.log("Empty");
+        tableHead.style.display = "none";
+    }else{
+      console.log("Something",tableBody.innerHTML );
+      tableHead.style.display = "block";
+      save.style.display = "block";
+    }
+    ;
+    
+};
+
+document.addEventListener("DOMContentLoaded", showData);
+</script>
+
+{% endblock content %}

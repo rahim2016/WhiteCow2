@@ -1,0 +1,266 @@
+
+      <div class="form-row">
+        <div class="col col-md-2">
+          <select class="form-control" id="exampleFormControlSelect1"  name = "sort">
+           <option name ="sort" value = "frehsnest">Sort by... </option>
+           {% for sort_sale in sort_sales %}
+           <option name ="sort" value ="{{sort_sale.name}}" >{{sort_sale.name}}</option>
+     
+           {% endfor %}
+         </select>
+       </div>
+
+       <div class="col col-md-2">
+        <input type="number" min =0 class="form-control" placeholder="Min Price" name = "price_min">
+     </div>
+     -
+     <div class="col col-md-2">
+        <input type="number" min = 0 class="form-control" placeholder="Max Price" name = "price_max">
+     </div>
+
+       <div class="col col-md-2">
+        <input type="number" min =0 class="form-control" placeholder="Min Bed" name = "beds_min">
+     </div>
+     -
+     <div class="col col-md-2">
+        <input type="number" min = 0 class="form-control" placeholder="Max Bed" name = "beds_max">
+     </div>
+
+     <div class="col col-md-2 mt-2">
+      <input type="number" min =0 class="form-control" placeholder="Min Bath" name = "baths_min">
+   </div>
+       -
+   <div class="col col-md-2 mt-2">
+      <input type="number" min = 0 class="form-control" placeholder="Max Bath" name = "baths_max">
+   </div>
+
+      <div class="col col-md-2 mt-2">
+        <select class="form-control" id="exampleFormControlSelect1"  name = "property_type">
+        <option name ="property_type" value = "">Property types... </option>
+        {% for property_type_sale in property_type_sales %}
+        <option name ="property_type" value ="{{property_type_sale.name}}" >{{property_type_sale.name}}</option>
+
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col col-md-2 mt-2">
+      <select class="form-control" id="exampleFormControlSelect1"  name = "property_type_nyc_only">
+      <option name ="property_type_nyc_only" value = "">Property Type Nyc Only... </option>
+      {% for property in property_type_nyc_only %}
+      <option name ="property_type_nyc_only" value ="{{property.name}}" >{{property.name}}</option>
+
+      {% endfor %}
+    </select>
+  </div>
+
+
+  <div class="col col-md-2 mt-2">
+    <select class="form-control" id="exampleFormControlSelect1"  name = "new_construction">
+    <option name ="new_construction" value = "">New Construction... </option>
+    {% for o in ok %}
+    <option name ="new_construction" value ="{{o.name}}" >{{o.name}}</option>
+
+    {% endfor %}
+  </select>
+  </div>
+
+  <div class="col col-md-2 mt-2">
+    <select class="form-control" id="exampleFormControlSelect1"  name = "hide_pending_contingent">
+    <option name ="hide_pending_contingent" value = "">Hide Pending Contingent... </option>
+    {% for o in ok %}
+    <option name ="hide_pending_contingent" value ="{{o.name}}" >{{o.name}}</option>
+
+    {% endfor %}
+  </select>
+  </div>
+
+  <div class="col col-md-2 mt-2">
+    <select class="form-control" id="exampleFormControlSelect1"  name = "has_virtual_tours">
+    <option name ="has_virtual_tours" value = "">Has Virtual Tours... </option>
+    {% for o in ok %}
+    <option name ="has_virtual_tours" value ="{{o.name}}" >{{o.name}}</option>
+
+    {% endfor %}
+  </select>
+  </div>
+
+  <div class="col col-md-2 mt-2">
+    <select class="form-control" id="exampleFormControlSelect1"  name = "has_3d_tours">
+    <option name ="has_3d_tours" value = "">Has 3d tours.. </option>
+    {% for o in ok %}
+    <option name ="has_3d_tours" value ="{{o.name}}" >{{o.name}}</option>
+
+    {% endfor %}
+  </select>
+  </div>
+
+  <div class="col col-md-2 mt-2">
+    <select class="form-control" id="exampleFormControlSelect1"  name = "hide_foreclosure">
+    <option name ="hide_foreclosure" value = "">Hide Foreclosure.. </option>
+    {% for o in ok %}
+    <option name ="hide_foreclosure" value ="{{o.name}}" >{{o.name}}</option>
+
+    {% endfor %}
+  </select>
+  </div>
+
+  <div class="col col-md-2 mt-2">
+    <select class="form-control" id="exampleFormControlSelect1"  name = "price_reduced">
+    <option name ="price_reduced" value = "">Price Reduced.. </option>
+    {% for o in ok %}
+    <option name ="price_reduced" value ="{{o.name}}" >{{o.name}}</option>
+
+    {% endfor %}
+  </select>
+  </div>
+  <div class="col col-md-2 mt-2">
+    <select class="form-control" id="exampleFormControlSelect1"  name = "open_house">
+    <option name ="open_house" value = "">Open house.. </option>
+    {% for o in ok %}
+    <option name ="open_house" value ="{{o.name}}" >{{o.name}}</option>
+
+    {% endfor %}
+  </select>
+  </div>
+
+  <div class="col col-md-2 mt-2">
+    <input type="text" class="form-control" placeholder="Keywords" name ="keywords">
+  </div>
+
+  <div class="col col-md-2 mt-2">
+    <select class="form-control" id="exampleFormControlSelect1"  name = "no_hoa_fee">
+    <option name ="no_hoa_fee" value = "">No Hoa Fee.. </option>
+    {% for no_hoa_fee in no_hoa_fees %}
+    <option name ="no_hoa_fee" value ="{{no_hoa_fee.name}}" >{{no_hoa_fee.name}}</option>
+
+    {% endfor %}
+  </select>
+  </div>
+
+  <div class="col col-md-2 mt-2">
+    <input type="number" min =0 class="form-control" placeholder="Hoa Max" name = "hoa_max">
+ </div>
+  
+ <div class="col col-md-2 mt-2">
+  <select class="form-control" id="exampleFormControlSelect1"  name = "expand_search_radius">
+  <option name ="expand_search_radius" value = "">Expand Search Radius. </option>
+  {% for expand_search in expand_search_radius %}
+  <option name ="expand_search_radius" value ="{{expand_search.name}}" >{{expand_search.name}}</option>
+
+  {% endfor %}
+</select>
+</div>
+
+<div class="col col-md-2 mt-2">
+  <select class="form-control" id="exampleFormControlSelect1"  name = "home_size_min">
+  <option name ="home_size_min" value = "">Min Home Size. </option>
+  {% for home_size_min_sale in home_size_min_sales %}
+  <option name ="home_size_min" value ="{{home_size_min_sale.value}}" >{{home_size_min_sale.value}}</option>
+
+  {% endfor %}
+</select>
+</div>
+<div class="col col-md-2 mt-2">
+  <select class="form-control" id="exampleFormControlSelect1"  name = "home_size_min">
+  <option name ="home_size_min" value = "">Max Home Size. </option>
+  {% for home_size_max_sale in home_size_max_sales %}
+  <option name ="home_size_max" value ="{{home_size_max_sale.value}}" >{{home_size_max_sale.value}}</option>
+
+  {% endfor %}
+</select>
+</div>
+
+<div class="col col-md-2 mt-2">
+  <select class="form-control" id="exampleFormControlSelect1"  name = "lot_size_min">
+  <option name ="lot_size_min" value = "">Min Lot Size. </option>
+  {% for lot_size in lot_sizes %}
+  <option name ="lot_size_min" value ="{{lot_size.value}}" >{{lot_size.value}}</option>
+
+  {% endfor %}
+</select>
+</div>
+<div class="col col-md-2 mt-2">
+  <select class="form-control" id="exampleFormControlSelect1"  name = "lot_size_max">
+  <option name ="lot_size_max" value = "">Max Lot Size. </option>
+  {% for lot_size in lot_sizes %}
+  <option name ="lot_size_max" value ="{{lot_size.value}}" >{{lot_size.value}}</option>
+
+  {% endfor %}
+</select>
+</div>
+
+<div class="col col-md-2 mt-2">
+  <select class="form-control" id="exampleFormControlSelect1"  name = "stories">
+  <option name ="stories" value = "">Stories.. </option>
+  {% for story in stories %}
+  <option name ="stories" value ="{{story.name}}" >{{story.name}}</option>
+
+  {% endfor %}
+</select>
+</div>
+
+<div class="col col-md-2 mt-2">
+  <select class="form-control" id="exampleFormControlSelect1"  name = "garage">
+  <option name ="garage" value = "">Garage.. </option>
+  {% for garage in garages %}
+  <option name ="garage" value ="{{garage.name}}" >{{garage.name}}</option>
+
+  {% endfor %}
+</select>
+</div>
+
+<div class="col col-md-2 mt-2">
+  <select class="form-control" id="exampleFormControlSelect1"  name = "heating_cooling">
+  <option name ="heating_cooling" value = "">Heating cooling.. </option>
+  {% for heating_cooling in heating_coolings %}
+  <option name ="heating_cooling" value ="{{heating_cooling.name}}" >{{heating_cooling.name}}</option>
+
+  {% endfor %}
+</select>
+</div>
+
+<div class="col col-md-2 mt-2">
+  <select class="form-control" id="exampleFormControlSelect1"  name = "inside_rooms">
+  <option name ="inside_rooms" value = "">Inside rooms.. </option>
+  {% for inside_room in inside_rooms %}
+  <option name ="inside_rooms" value ="{{inside_room.name}}" >{{inside_room.name}}</option>
+
+  {% endfor %}
+</select>
+</div>
+
+<div class="col col-md-2 mt-2">
+  <select class="form-control" id="exampleFormControlSelect1"  name = "outside_features">
+  <option name ="outside_features" value = "">Outside features.. </option>
+  {% for outside_feature in outside_features %}
+  <option name ="outside_features" value ="{{outside_feature.name}}" >{{outside_feature.name}}</option>
+
+  {% endfor %}
+</select>
+</div>
+
+<div class="col col-md-2 mt-2">
+  <select class="form-control" id="exampleFormControlSelect1"  name = "lot_views">
+  <option name ="lot_views" value = "">Lot Views.. </option>
+  {% for lot_view in lot_views %}
+  <option name ="lot_views" value ="{{lot_view.name}}" >{{lot_view.name}}</option>
+
+  {% endfor %}
+</select>
+</div>
+
+<div class="col col-md-2 mt-2">
+  <select class="form-control" id="exampleFormControlSelect1"  name = "community_ammenities">
+  <option name ="community_ammenities" value = "">Community Ammenities. </option>
+  {% for community_ammenity in community_ammenities %}
+  <option name ="community_ammenities" value ="{{community_ammenity.name}}" >{{community_ammenity.name}}</option>
+
+  {% endfor %}
+</select>
+</div>
+
+
+
+
+      </div>

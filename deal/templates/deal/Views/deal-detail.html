@@ -1,0 +1,47 @@
+{% extends 'deal/sharefiles/base.html' %} {% block content %}
+
+<div class="container">
+    <div class="col-12">
+
+  <div class="app-table">
+
+    <table class="table table-stripped table-hover">
+      <thead>
+        <tr>
+          <th>Price ($)</th>
+          <th>Description</th>
+          <th>Location</th>
+        
+          <th></th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        {% for deal in deals.itertuples%}
+        <tr>
+          <td>{{deal.list_price}}</td>
+          <td>{{deal.description.type}}, baths:{{deal.description.baths}} beds:{{deal.description.beds}} Garage:{{deal.description.garage}}, {{deal.description.sqft}} sqft</td>
+          <td>{{deal.location.address.postal_code}}, {{deal.location.address.state}} {{deal.location.address.state_code}}</td>
+          
+  
+          <td>
+            <a
+              href="https://www.realtor.com/realestateandhomes-detail/{{deal.permalink}}"
+              class="btn btn-secondary btn-sm"
+              >View Details</a
+            >
+          </td>
+        </tr>
+  
+        {% endfor %}
+      </tbody>
+    </table>
+    
+  </div>
+
+    </div>
+  </div>
+
+
+
+{% endblock content %}

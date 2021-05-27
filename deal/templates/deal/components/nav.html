@@ -1,0 +1,189 @@
+{% load static %} {% load socialaccount %}
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="{% url 'index' %}">WHITE COW</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if user.is_authenticated %}
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'index' %}">HOME <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'dashboad' %}">DEAL</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">ABOUT US</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">CONTACT US</a>
+                </li>
+            </ul>
+
+            <div id="Profile" class="UserProfile">
+                <div class="userpicture">
+                    <img class="rounded-circle avatar" src="{{ user.profile.image.url }}" alt="about us" />
+                </div>
+                <div class="dropdowprofile"><i class="fas fa-caret-down"></i></div>
+                <div id="userdropdox" class="useraction">
+                    <div class="usersect"><a href="{% url 'profile' %}">Profile</a></div>
+                    <div class="usersect"><a href="{% url 'subscriptions' %}">Subscriptions</a></div>
+                    <div class="usersect"><a href="{% url 'logout' %}">Sign Out</a></div>
+                </div>
+            </div>
+            {% else %}
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'index' %}">HOME <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">ABOUT US</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">CONTACT US</a>
+                </li>
+            </ul>
+            <div id="authbox" class="auth dropdown">
+                <div class="signin">
+                    <img class="Imgsignin" src="{% static 'file/images/sigin.png' %}" alt="" />
+                    <a id="signin" href="" data-toggle="modal" data-target="#modalLoginForm">SIGN IN</a>
+
+                    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header text-center">
+                                    <h4 class="modal-title w-100 font-weight-bold">SIGN IN</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body mx-3">
+                                    <form class="px-4 py-3" action="{% url 'login' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <label for="exampleDropdownFormEmail2">User Name</label>
+                                            <input name="name" type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="Enter username" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleDropdownFormPassword2">Password</label>
+                                            <input name="password" type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password" required>
+                                        </div>
+                                        <div class="row form-group mt-4">
+                                            <div class=" col-12"><button class="btn btn-outline-info" style="width: 100%;" type="submit"> Login </button></div>
+                                            <div class=" col-12 mt-3"><small class="text-muted ml-2">
+                                            <a href="{% url 'password_reset' %}">Forgot Password?</a>
+                                          </small></div>
+
+
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer d-flex justify-content-center row">
+
+                                    <div class="col-12">
+                                        <small class="loginWithtxt">Sign In with <a href="{% provider_login_url 'github' %}">
+                                      <img class="icon" src="{% static 'file/images/github.png' %}" alt="instagramabout us" /> Github</a>
+                                        <a href="{% provider_login_url 'google' %}">
+                                      <img class="icon"  src="{% static 'file/images/google.png' %}" alt="instagramabout us"  />Google </a><br />
+                                    </small>
+                                    </div>
+                                    <div class="col-12 m-2">
+                                        <small class="text-muted">
+                                        Need An Anccount ?
+                                        <a class="ml-2" href="" data-toggle="modal" data-target="#modalRegisterForm">Sign Up Now</a>
+                                      </small>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+                <div class="signup">
+                    <img class="Imgsignin" src="{% static 'file/images/newacount.png' %}" alt="" />
+                    <div class="dropdown">
+
+                        <a id="signup" href="" data-toggle="modal" data-target="#modalRegisterForm">SIGN UP</a>
+
+                        <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header text-center">
+                                        <h4 class="modal-title w-100 font-weight-bold">SIGN UP</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body mx-3">
+                                        <form action="{% url 'register' %}" method="post" class="signInform">
+                                            {% csrf_token %}
+
+                                            <fieldset class="form-group">
+                                                {% include 'partials/_messages.html'%}
+                                                <div class="form-group">
+                                                    <label for="exampleDropdownFormName2">Name</label>
+                                                    <input type="text" class="form-control" id="exampleDropdownFormName2" name="name" placeholder="Enter name" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleDropdownFormEmail2">Email address</label>
+                                                    <input type="email" name="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleDropdownFormPassword2">Password</label>
+                                                    <input type="password" name="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleDropdownFormPassword3">Confirm Password</label>
+                                                    <input type="password" name="confirm_password" class="form-control" id="exampleDropdownFormPassword3" placeholder="Confirm Password" required>
+                                                </div>
+                                            </fieldset>
+                                            <div class="form-group">
+                                                <button class="btn btn-outline-info" type="submit" style="width: 100%;">
+                                                  Sign Up
+                                                </button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+
+        {% endif %}
+</div>
+</nav>
+</div>

@@ -1,0 +1,40 @@
+{% load static %}
+<div class="container">
+    <div id="contact" class="contact">
+        <div class="contact-left">
+            <img class="envelop" src="{% static 'file/images/envelope.png' %}" alt="message">
+            <p class="startContact">
+                If you have question or just
+                want to get in touch, use the
+                form below. We look foward to
+                hearing from you.
+            </p>
+        </div>
+        <div class="contact-rigth">
+            <div class="my-5">
+                <h1 class="text-center">CONTACT US</h1>
+            </div>
+                <div class="formSect">
+                    <form onSubmit={formSubmit} action="">
+                        <div class="form-group mb-3">
+                            <label htmlFor="exampleFormControlInput1" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" name="fullname"  placeholder="enter your name" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label htmlFor="exampleFormControlInput1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" name="email"  placeholder="name@example.com" />
+                        </div>
+                        <div class="form-group mb-3">
+                            <label htmlFor="exampleFormControlTextarea1" class="form-label">Message</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="msg"></textarea>
+                        </div>
+                        <div class="col-12 my-2">
+                            <button type="submit" class="btn btn-outline-info">SEND</button>
+                        </div>
+                    </form>
+                </div>
+
+           
+        </div>
+    </div>
+</div>
